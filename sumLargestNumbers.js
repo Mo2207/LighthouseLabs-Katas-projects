@@ -1,8 +1,8 @@
 
 const sumLargestNumbers = function(data) { 
-  let num = Math.max(...data);
-  data.splice(data.indexOf(Math.max(...data)));
-  return Math.max(...data) + num;
+  let num = Math.max(...data); // the largest number is assigned to num
+  data.splice(data.indexOf(Math.max(...data))); // the largest number is removed from the array
+  return Math.max(...data) + num; // the second largest number is then added to num and returned
 };
 
 console.log(sumLargestNumbers([1, 10])); // 11
