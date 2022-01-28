@@ -1,12 +1,12 @@
 
-const chooseRecipe = function(bakeryA, bakeryB, recipes) {
+const chooseRecipe = function(bakeryA, bakeryB, recipes) {c
   let result = 0;
 
-  for (let i = 0; i < recipes.length; i++) {
-    for (let j = 0; j < recipes[i].ingredients.length; j++) {
+  for (let i = 0; i < recipes.length; i++) { //iterates through recipes array of objects
+    for (let j = 0; j < recipes[i].ingredients.length; j++) { // iterates through objects ingredients
       if (bakeryA.includes(recipes[i].ingredients[j])) result++;
       if (bakeryB.includes(recipes[i].ingredients[j])) result++;
-      if (result === 2) return recipes[i].name;
+      if (result === 2) return recipes[i].name; // if both bakeryA and bakeryB have a matching ingredient result is incremented and returned when at 2
     }
   }
 }
