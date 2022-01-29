@@ -1,5 +1,6 @@
 
 // this function is responsible for camelCase, pascalCase and title
+// with spacing optional
 export function upperCaseMe(input, start = 0, spacing = false) {
   let result = '';
 

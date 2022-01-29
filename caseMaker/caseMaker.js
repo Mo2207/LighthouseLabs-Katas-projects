@@ -1,28 +1,45 @@
 import { seperate } from './seperate.js';
 import { upperCaseMe } from './upperCaseMe.js';
+import { vowelConsonant } from './vowelConsonant.js';
 
 const makeCase = function(input, casing) {
-  if (casing === 'camel') {
-    return upperCaseMe(input, 1); // skip the first word, no spaces
+  let result = '';
+  if (casing.includes('camel')) {
+    result += upperCaseMe(input, 1); // skip the first word, no spaces
   }
-  if (casing === 'pascal') {
-    return upperCaseMe(input, 0); // start at the first word, no spaces
+  if (casing.includes('pascal')) {
+    result += upperCaseMe(input, 0); // start at the first word, no spaces
   }
-  if (casing === 'snake') {
-    return seperate(input, '_'); // seperate words by _
+  if (casing.includes('snake')) {
+    result += seperate(input, '_'); // seperate words by _
   }
-  if (casing === 'kebab') {
-    return seperate(input, "-"); // seperate words by -
+  if (casing.includes('kebab')) {
+    result += seperate(input, "-"); // seperate words by -
   }
-  if (casing === 'title') {
-    return upperCaseMe(input, 0, true); // capitalize all words, with spaces
+  if (casing.includes('title')) {
+    result += upperCaseMe(input, 0, true); // capitalize all words, with spaces
   }
-  if (casing === 'vowel') {
-
+  if (casing.includes('vowel')) {
+    result += vowelConsonant(input, 'vowel'); // capitalize all vowels
   }
-  if (casing === 'consonant') {
-
+  if (casing.includes('consonant')) {
+    result += vowelConsonant(input, 'consonant'); // capitalize all consonants
   }
+  if (casing.includes('upper')) {
+    if (result !== '') {
+      result = result.toUpperCase(); // if result has already been modified, keep its value but
+    } else {                         // capitalize it
+      result += input.toUpperCase(); // otherwise just return the input capitalized
+    }
+  }
+  if (casing.includes('lower')) {
+    if (result !== '') {
+      result = result.toLowerCase(); // if result has already been modified, keep its value but
+    } else {                         // lowercase it
+      result += input.toLowerCase(); // otherwise just return the input lowercased
+    }
+  }
+  return result;
 }
 
 console.log(makeCase("this is a string", "camel")); // thisIsAString
