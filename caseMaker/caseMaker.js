@@ -1,4 +1,4 @@
-import { seperate } from './seperate.js';
+import { separate } from './separate.js';
 import { upperCaseMe } from './upperCaseMe.js';
 import { vowelConsonant } from './vowelConsonant.js';
 
@@ -11,10 +11,10 @@ const makeCase = function(input, casing) {
     result += upperCaseMe(input, 0); // start at the first word, no spaces
   }
   if (casing.includes('snake')) {
-    result += seperate(input, '_'); // seperate words by _
+    result += separate(input, '_'); // separate words by _
   }
   if (casing.includes('kebab')) {
-    result += seperate(input, "-"); // seperate words by -
+    result += separate(input, "-"); // separate words by -
   }
   if (casing.includes('title')) {
     result += upperCaseMe(input, 0, true); // capitalize all words, with spaces
